@@ -1,15 +1,15 @@
 /*
-Função: Jogo da Velha
-Carlos Alberto Gonçalves da Silva Neto, Thaissa da Silva Ferrari, Pablo Henrique Vieira de Nadai
-Data de Criação: 2019/10/23
-Data de Finalização:
+FunÃ§Ã£o: Jogo da Velha
+Carlos Alberto GonÃ§alves da Silva Neto, Thaissa da Silva Ferrari, Pablo Henrique Vieira de Nadai
+Data de CriaÃ§Ã£o: 2019/10/23
+Data de FinalizaÃ§Ã£o:
 
 Criar um modo para iniciar e sair do jogo; Feito
 Criar um modo para os jogadores colocarem seus nomes; Feito
-Criar um modo para os jogadores escolherem X ou O; Mudança 
-	[O jogador 1 sempre será o 'X' e o 2 será a 'O' no primeiro jogo. Nas próximas rodadas o vencedor será o 'X' (O 'X' sempre começa)]; Feito
+Criar um modo para os jogadores escolherem X ou O; MudanÃ§a 
+	[O jogador 1 sempre serÃ¡ o 'X' e o 2 serÃ¡ a 'O' no primeiro jogo. Nas prÃ³ximas rodadas o vencedor serÃ¡ o 'X' (O 'X' sempre comeÃ§a)]; Feito
 Criar um modo para o jogo em si;
-Criar um modo para declarar vitória a partir da 5º jogada;
+Criar um modo para declarar vitÃ³ria a partir da 5Âº jogada;
 Criar um modo para declarar velha;
 Criar um modo para caso falhas;
 Criar um modo para jogar novamente ou finalizar;
@@ -25,11 +25,11 @@ int main(){
 	int jogo = 2, start = 4, l = 0, c = 0, p1 = 0, p2 = 0, totalp1 = 0, totalp2 = 0, jogada = 0, cod3 = 0, ganhou = 0;
 	char velha[3][3], jogador1[30], jogador2[30], sim1 = ' ', sim2 = ' ';
     setlocale (LC_ALL,"");
-    printf("Se você quiser jogar digite 1, senão digite 0 \n");
+    printf("Se vocÃª quiser jogar digite 1, senÃ£o digite 0 \n");
     scanf("%i", &jogo);
 //PEDIR NOME E INFORMAR O SIMBOLO//
 			fflush(stdin);
-	    	printf("O jogo vai começar \n");
+	    	printf("O jogo vai comeÃ§ar \n");
 	    	printf("Insira o nome do jogador 1: \n");
 			gets(jogador1);
 			printf("Insira o nome do jogador 2: \n");
@@ -40,7 +40,7 @@ int main(){
 					printf("Valor Incorreto \n");
 					scanf("%i", &jogo);
 				}
-				//COLOCAR AS POSIÇÕES COMO VAZIAS//
+				//COLOCAR AS POSIÃ‡Ã•ES COMO VAZIAS//
 	 			for (l = 0; l < 3; l++){
 	 				for (c = 0; c < 3; c++){
 	 					velha[l][c] = ' ';
@@ -52,11 +52,11 @@ int main(){
 				 	//TABULEIRO//			 
 					//criar o tabuleiro//
 					
-				printf("     C1  C2  C3\n\n");
+				printf("     C0  C1  C2\n\n");
 				for(l=0; l<3; l++) { 
-				   if(l==0) printf("X1"); 
-				   if(l==1) printf("X2");
-				   if(l==2) printf("X3"); 
+				   if(l==0) printf("L0"); 
+				   if(l==1) printf("L1");
+				   if(l==2) printf("L2"); 
 				   for(c=0; c<3; c++) { 
 				      if(c==0) printf("   %c ", velha[l][c]); 
 				      else printf(" %c ", velha[l][c]);
@@ -68,31 +68,31 @@ int main(){
 				 
 				//TABULEIRO//
 				
-	 			if(jogada % 2 != 0){ //Verficar se é o jogador 1 ou 2//
+	 			if(jogada % 2 != 0){ //Verficar se Ã© o jogador 1 ou 2//
 					printf("Vez do jogador 1, \nEscolha uma linha:\n");
 					scanf("%i", &l);
 					printf("Agora insira a coluna desejada:\n");
 					scanf("%i", &c);
 					if(velha[l][c] != ' '){ 
-						printf("A posição desejada já está preenchida, por favor, selecione outra!\n");
-						printf("Insira a posição da linha desejada: \n");
+						printf("A posiÃ§Ã£o desejada jÃ¡ estÃ¡ preenchida, por favor, selecione outra!\n");
+						printf("Insira a posiÃ§Ã£o da linha desejada: \n");
 						scanf("%i", &l);
-						printf("Insira a posição da coluna desejada: \n");
+						printf("Insira a posiÃ§Ã£o da coluna desejada: \n");
 						scanf("%i", &c);
 						velha[l][c] = 'X';
 					}
 					velha[l][c] = 'X';
 	 			}
-	      		if(jogada % 2 == 0){ //Verficar se é o jogador 1 ou 2//
+	      		if(jogada % 2 == 0){ //Verficar se Ã© o jogador 1 ou 2//
 		      		printf("Vez do jogador 2, \nEscolha uma linha:\n");
 					scanf("%i", &l);
 					printf("Agora insira a coluna desejada:\n");
 					scanf("%i", &c);
 	 				if (velha[l][c] != ' '){
-						printf("A posição desejada já está preenchida, por favor, selecione outra!\n");
-						printf("Insira a posição da linha desejada: \n");
+						printf("A posiÃ§Ã£o desejada jÃ¡ estÃ¡ preenchida, por favor, selecione outra!\n");
+						printf("Insira a posiÃ§Ã£o da linha desejada: \n");
 						scanf("%i", &l);
-						printf("Insira a posição da coluna desejada: \n");
+						printf("Insira a posiÃ§Ã£o da coluna desejada: \n");
 						scanf("%i", &c);
 						velha[l][c] = 'O';
 					}
